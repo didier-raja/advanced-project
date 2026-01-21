@@ -1,19 +1,9 @@
-const Project = require('../models/Project');
+const Product = require('../models/Product');
 
-exports.getProjects = async (req, res) => {
-    try {
-        const projects = await Project.findAll();
-        res.status(200).json(projects);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching projects" });
-    }
-};
-
-exports.createProject = async (req, res) => {
-    try {
-        const newProject = await Project.create(req.body);
-        res.status(201).json(newProject);
-    } catch (error) {
-        res.status(400).json({ message: "Error creating project" });
-    }
+exports.getAllProducts = async (req, res) => {
+    // 1. Fetch data from Database
+    const items = await Product.findAll(); 
+    
+    // 2. Send data to the View (HTML)
+    res.render('index', { products: items }); 
 };

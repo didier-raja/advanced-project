@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Store</title>
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <h1>Welcome to My Store</h1>
+    <div class="product-list" style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <% products.forEach(p => { %>
+            <div class="card" style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 200px;">
+                <img src="<%= p.imageUrl %>" width="100%" alt="product">
+                <h3><%= p.title %></h3>
+                <p>$<%= p.price %></p>
+                <button onclick="addToCart('<%= p.id %>')">Add to Cart</button>
+            </div>
+        <% }) %>
+    </div>
+    <script src="/js/cart.js"></script> 
+</body>
+</html>
