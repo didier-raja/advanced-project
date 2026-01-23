@@ -11,7 +11,6 @@ const sequelize = new Sequelize(
         logging: false
     }
 );
-
 const connectDB = async () => {
     try {
         await sequelize.authenticate();
@@ -21,5 +20,4 @@ const connectDB = async () => {
         process.exit(1);
     }
 };
-
 module.exports = { sequelize, connectDB };
